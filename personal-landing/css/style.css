@@ -1,4 +1,4 @@
-/* === Global Styles === */
+/*All The Styles*/
 html {
   scroll-behavior: smooth;
 }
@@ -8,17 +8,18 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
-  background: linear-gradient(to bottom right, #eef2f3, #cfd9df);
-  color: #333;
+  background: linear-gradient(to bottom right, #fbfbfb, #f9f8f7);
+  color: #000000;
 }
 
-/* === Navigation === */
+/*Navigation*/
 nav {
-  background-color: #3366cc;
+  background-color: #b14c4c;
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
@@ -31,59 +32,77 @@ nav ul {
 }
 
 nav a {
-  color: white;
+  color: rgb(241, 234, 234);
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s;
+  transition: color 0.3s, border-bottom 0.3s;
 }
 
-nav a:hover {
-  color: #ffd700;
+nav a:hover,
+nav a.active {
+  color: white;
+  border-bottom: 2px solid white;
 }
 
-/* === Header === */
+/*Header*/
 header {
-  padding: 2rem;
-  background-color: #f9fafc;
+  padding: 3rem 1rem;
+}
+
+header h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
 header h1 span {
-  color: #3366cc;
+  color: #b14c4c;
 }
 
 header p {
   font-size: 1.1rem;
-  color: #555;
+  color: #333;
 }
 
-/* === Sections === */
-.section {
-  padding: 3rem 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.section:nth-child(even) {
-  background-color: #ffffff;
-}
-
-.section:nth-child(odd) {
-  background-color: #f0f4ff;
-}
-
+/*Profile Image*/
 .profile-img {
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
-
 .profile-img:hover {
   transform: scale(1.05);
 }
 
-/* === Social Links === */
+/*Section Styles*/
+.section {
+  padding: 3rem 1rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section:nth-child(even) {
+  background-color: #f0f4ff;
+}
+
+.section:nth-child(odd) {
+  background-color: #fdfdfd;
+}
+
+/*Social Links*/
 .social-links {
   display: flex;
   justify-content: center;
@@ -93,25 +112,34 @@ header p {
 }
 
 .social-links a {
-  color: #3366cc;
+  color: #0c0c0c;
   text-decoration: none;
   font-weight: 600;
-  border: 2px solid #3366cc;
+  border: 2px solid #b14c4c;
   border-radius: 25px;
-  padding: 8px 16px;
+  padding: 10px 18px;
   transition: all 0.3s;
 }
 
 .social-links a:hover {
-  background-color: #3366cc;
+  background-color: #b14c4c;
   color: white;
 }
 
-/* === Footer === */
-footer {
-  background-color: #3366cc;
-  color: white;
-  padding: 1rem 0;
-  font-size: 0.9rem;
-  margin-top: 2rem;
+/*Responsive Design*/
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  header h1 {
+    font-size: 2rem;
+  }
+  .section {
+    padding: 2rem 1rem;
+  }
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
 }
