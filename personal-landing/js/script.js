@@ -1,4 +1,4 @@
-// === Smooth Section Reveal on Scroll ===
+// Smooth Section Reveal on Scroll
 const sections = document.querySelectorAll(".section");
 
 window.addEventListener("scroll", () => {
@@ -10,10 +10,10 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// === Active Navigation Highlight ===
+// Active Navigation Highlight
 const navLinks = document.querySelectorAll("nav a");
 
-window.addEventListener("scroll", () => {
+function setActiveLink() {
   let current = "";
   document.querySelectorAll("section").forEach((section) => {
     const sectionTop = section.offsetTop;
@@ -26,9 +26,20 @@ window.addEventListener("scroll", () => {
       link.classList.add("active");
     }
   });
+}
+
+// Update active link on scroll
+window.addEventListener("scroll", setActiveLink);
+
+// Update active link on click
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    navLinks.forEach((l) => l.classList.remove("active"));
+    link.classList.add("active");
+  });
 });
 
-// === Welcome Alert on Header Click ===
+// Welcome Alert on Header Click 
 document.querySelector("h1").addEventListener("click", () => {
   alert("Welcome to Yohana's Portfolio!");
 });
