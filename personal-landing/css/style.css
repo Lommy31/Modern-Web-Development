@@ -169,7 +169,7 @@ header p {
 }
 
 .section:nth-child(even) {
-  background-color: #f0f4ff;
+  background-color: #fdfdfd;
 }
 
 .section:nth-child(odd) {
