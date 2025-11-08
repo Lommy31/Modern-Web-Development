@@ -45,7 +45,7 @@ document.querySelector("h1").addEventListener("click", () => {
   alert("Welcome to Yohana's Portfolio!");
 });
 
-// CONFETTI FUNCTION
+// Conffeti function
 function fireConfetti() {
     const duration = 1200;
     const end = Date.now() + duration;
@@ -61,17 +61,16 @@ function fireConfetti() {
     }());
 }
 
-// Bikin 1 butir confetti
 function fireConfettiSoft() {
     let count = 0;
-    const total = 35; // jumlah lebih sedikit & soft
+    const total = 35; 
 
     const interval = setInterval(() => {
         createSoftConfetti();
         count++;
 
         if (count >= total) clearInterval(interval);
-    }, 100); // tambah delay antar confetti (lebih halus)
+    }, 100); 
 }
 
 function createSoftConfetti() {
@@ -81,16 +80,16 @@ function createSoftConfetti() {
     // random position
     confetti.style.left = Math.random() * window.innerWidth + "px";
 
-    // warna pastel lembut
+    // colour
     const colors = ["#ffd6e0", "#f7c8c8", "#ffe5d9", "#e8f3d6", "#e7d8ff"];
     confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
 
-    // ukuran kecil, biar soft
+    // sizes
     const size = Math.random() * 5 + 4;
     confetti.style.width = size + "px";
     confetti.style.height = size * 1.4 + "px";
 
-    // animasi tidak terlalu cepat
+    // animated
     confetti.style.animationDuration = 2 + Math.random() * 1 + "s";
 
     document.body.appendChild(confetti);
@@ -98,6 +97,7 @@ function createSoftConfetti() {
     setTimeout(() => confetti.remove(), 3000);
 }
 
-// Listener ke nama kamu
+// Listener to my name
 document.getElementById("nameClick").addEventListener("click", fireConfettiSoft);
+
 
