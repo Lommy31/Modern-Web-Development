@@ -43,3 +43,4 @@ navLinks.forEach((link) => {
 document.querySelector("h1").addEventListener("click", () => {
   alert("Welcome to Yohana's Portfolio!");
 });
+

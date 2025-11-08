@@ -73,13 +73,21 @@ body {
 }
 
 /*Navigation*/
+/*Navigation - Glass Effect*/
 nav {
-  background-color: #b14c4c;
-  padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  background: rgba(177, 76, 76, 0.45); /* warna merah pastel transparan */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+  box-shadow: 0 8px 20px rgba(201, 197, 197, 0.08);
+  transition: all 0.3s ease;
 }
 
 nav ul {
@@ -92,30 +100,22 @@ nav ul {
 }
 
 nav a {
-  color: rgb(241, 234, 234);
+  color: rgb(255, 245, 245);
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
   padding: 8px 16px;
   border-radius: 25px;
+
   transition: all 0.3s ease;
-  box-shadow: none; 
-  background-color: transparent;
 }
 
-nav a.active {
-  background-color: #ffffff;
-  color: #b14c4c;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/*Hover effect*/
+nav a.active,
 nav a:hover {
   background-color: #ffffff;
   color: #b14c4c;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
-
 
 /*Header*/
 header {
@@ -151,29 +151,105 @@ header p {
   transform: scale(1.05);
 }
 
+/*Glass Effect*/
+/* Fade in basic */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in-out forwards;
+}
+
+/* Fade in with slight delay */
+.fade-in-delay {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pop-in photo */
+.pop-in {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: popIn 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.card-wrapper {
+  position: relative;
+  width: 80%;
+  margin: 60px auto;
+}
+
+/* --- GLASS CARD --- */
+.glass-card {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.55); /* soft white glass */
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 204, 204, 0.5); /* soft pastel pink */
+  box-shadow: 0 15px 35px rgba(177, 76, 76, 0.18); /* maroon shadow lembut */
+
+  animation: slideUp 0.9s ease forwards;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.25s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* --- PLAIN BACK CARD --- */
+.plain-card {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  background: #f5dede; /* soft pink keabu */
+  z-index: 1;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
 /*Section Styles*/
 .section {
   padding: 3rem 1rem;
   max-width: 900px;
   margin: 2rem auto;
-  border-radius: 20px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease-out;
+  background: transparent; 
+  box-shadow: none;        
 }
 
 .section.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-.section:nth-child(even) {
-  background-color: #fdfdfd;
-}
-
-.section:nth-child(odd) {
-  background-color: #fdfdfd;
 }
 
 /*Text Styles for Sections*/
