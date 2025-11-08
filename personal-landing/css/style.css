@@ -3,6 +3,7 @@ html {
   scroll-behavior: smooth;
 }
 
+
 body {
   font-family: "Poppins", Arial, sans-serif;
   margin: 0;
@@ -175,7 +176,7 @@ header p {
   opacity: 0;
   transform: scale(0.8);
   animation: popIn 1s ease-out forwards;
-  animation-delay: 0.3s;
+  animation-delay: 0.5s;
 }
 
 @keyframes popIn {
@@ -195,11 +196,11 @@ header p {
   z-index: 2;
   padding: 40px;
   border-radius: 25px;
-  background: rgba(255, 255, 255, 0.55); /* soft white glass */
+  background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
-  border: 1px solid rgba(255, 204, 204, 0.5); /* soft pastel pink */
-  box-shadow: 0 15px 35px rgba(177, 76, 76, 0.18); /* maroon shadow lembut */
+  border: 1px solid rgba(255, 204, 204, 0.5); 
+  box-shadow: 0 15px 35px rgba(177, 76, 76, 0.18); 
 
   animation: slideUp 0.9s ease forwards;
   transform: translateY(20px);
@@ -234,6 +235,11 @@ header p {
   }
 }
 
+body {
+  background:
+    radial-gradient(circle, #e52d2d 2px, transparent 2px);
+  background-size: 45px 45px;
+}
 
 /*Section Styles*/
 .section {
@@ -299,6 +305,27 @@ header p {
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(177, 76, 76, 0.3);
 }
+
+/* CONFETTI STYLE */
+.confetti-soft {
+    position: fixed;
+    top: -10px;
+    opacity: 0.8;
+    border-radius: 3px;
+    animation: softFall linear forwards;
+    z-index: 9999;
+    animation-duration: 2s;
+}
+
+@keyframes softFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(160deg);
+    }
+}
+
 
 /*Animation for Smooth Fade*/
 @keyframes fadeIn {
