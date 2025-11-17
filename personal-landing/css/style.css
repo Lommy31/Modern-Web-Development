@@ -74,12 +74,13 @@ body {
 }
 
 /*Navigation*/
+/*Navigation - Glass Effect*/
 nav {
   position: sticky;
   top: 0;
   z-index: 1000;
 
-  background: rgba(177, 76, 76, 0.45);
+  background: rgba(177, 76, 76, 0.45); /* warna merah pastel transparan */
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 
@@ -189,7 +190,7 @@ header p {
   margin: 60px auto;
 }
 
-/*Glass card*/
+/* --- GLASS CARD --- */
 .glass-card {
   position: relative;
   z-index: 2;
@@ -211,7 +212,7 @@ header p {
   transform: translateY(-5px) scale(1.02);
 }
 
-/*Plain back card*/
+/* --- PLAIN BACK CARD --- */
 .plain-card {
   position: absolute;
   top: 25px;
@@ -219,7 +220,7 @@ header p {
   width: 100%;
   height: 100%;
   border-radius: 25px;
-  background: #f5dede;
+  background: #f5dede; /* soft pink keabu */
   z-index: 1;
 }
 
@@ -255,6 +256,69 @@ body {
 .section.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+#portfolio {
+  padding: 80px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #B85C5C;
+}
+
+.portfolio-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 25px rgba(0,0,0,0.15);
+  padding: 35px;
+  border-radius: 20px;
+  margin: 40px auto;
+  width: 80%;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-8px);
+}
+
+.portfolio-img {
+  width: 350px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.25);
+}
+
+.portfolio-text {
+  max-width: 500px;
+}
+
+.portfolio-text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #B85C5C;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .portfolio-card {
+    flex-direction: column;
+  }
+  .reverse {
+    flex-direction: column;
+  }
+  .portfolio-img {
+    width: 100%;
+  }
 }
 
 /*Text Styles for Sections*/
@@ -305,7 +369,8 @@ body {
   box-shadow: 0 4px 12px rgba(177, 76, 76, 0.3);
 }
 
-/*Conffeti style*/
+
+/* CONFETTI STYLE */
 .confetti-soft {
     position: fixed;
     top: -10px;
@@ -325,7 +390,8 @@ body {
     }
 }
 
-/*Animation*/
+
+/*Animation for Smooth Fade*/
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -361,5 +427,4 @@ body {
     font-size: 0.95rem;
     padding: 8px 14px;
   }
-
 }
